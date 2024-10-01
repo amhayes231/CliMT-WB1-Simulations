@@ -427,7 +427,8 @@ def get_grid(
         custom_surface_pressure=None,                   # ------- Custom Addition
         proportion_sigma_levels=0.1,
         proportion_isobaric_levels=0.25,
-        x_name='lon', y_name='lat',
+        x_name='lon', y_name='lat', 
+        custom_datetime=None,                                      # ------- Custom Addition                                  
         latitude_grid='gaussian'):
     """
     Args:
@@ -448,6 +449,8 @@ def get_grid(
             Name of latitudinal dimension
         y_name : str, optional
             Name of longitudinal dimension
+        custom_datetime : datetime(), optional
+            Custom start date and time
         latitude_grid : 'gaussian' or 'regular'
             Type of spacing to use for the latitudinal grid.
 
@@ -478,10 +481,11 @@ def get_grid(
     # return_state['surface_air_pressure'] = DataArray(
     #     np.ones((ny, nx))*p_surf_in_Pa, dims=[y_name, x_name], attrs={'units': 'Pa'}
     # )
+    # return_state['time'] = datetime(2000, 1, 1)
 #----------------------------------------------------------------------------------------------------
     if custom_surface_pressure is not None:
         return_state['surface_air_pressure'] = DataArray(
-            custom_surface_pressure,
+            custom_surface_pressure.values,
             dims=[y_name, x_name],
             attrs={'units': 'Pa'}
         )
@@ -489,8 +493,11 @@ def get_grid(
         return_state['surface_air_pressure'] = DataArray(
             np.ones((ny, nx))*p_surf_in_Pa, dims=[y_name, x_name], attrs={'units': 'Pa'}
         )
-        
-    return_state['time'] = datetime(2000, 1, 1)
+    
+    if custom_datetime is not None:
+        return_state['time'] = custom_datetime
+    else:
+        return_state['time'] = datetime(2000, 1, 1)
 #----------------------------------------------------------------------------------------------------
     return_state.update(HybridSigmaPressureDiagnosticComponent()(return_state))
     if nx is not None:
