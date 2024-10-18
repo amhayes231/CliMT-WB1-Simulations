@@ -10,3 +10,5 @@ Naming Conventions:
 
  - lond:    London
  - ever:    Mount Everest
+ - res:     Residual (Increment)
+ - tn:      nth timestep (t0 = ICs)
