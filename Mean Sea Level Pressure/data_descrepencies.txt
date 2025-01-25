@@ -1,0 +1,59 @@
+newly obtained data from api req =  <xarray.Dataset> Size: 1GB
+Dimensions:         (latitude: 721, longitude: 1440, pressure_level: 37)
+Coordinates:
+    number          int64 8B ...
+    valid_time      datetime64[ns] 8B 2018-01-01
+  * latitude        (latitude) float64 6kB 90.0 89.75 89.5 ... -89.75 -90.0
+  * longitude       (longitude) float64 12kB 0.0 0.25 0.5 ... 359.2 359.5 359.8
+    expver          <U4 16B ...
+  * pressure_level  (pressure_level) float64 296B 1.0 2.0 3.0 ... 975.0 1e+03
+Data variables:
+    d               (pressure_level, latitude, longitude) float32 154MB ...
+    z               (pressure_level, latitude, longitude) float32 154MB ...
+    q               (pressure_level, latitude, longitude) float32 154MB ...
+    t               (pressure_level, latitude, longitude) float32 154MB ...
+    u               (pressure_level, latitude, longitude) float32 154MB ...
+    v               (pressure_level, latitude, longitude) float32 154MB ...
+    vo              (pressure_level, latitude, longitude) float32 154MB ...
+Attributes:
+    GRIB_centre:             ecmf
+    GRIB_centreDescription:  European Centre for Medium-Range Weather Forecasts
+    GRIB_subCentre:          0
+    Conventions:             CF-1.7
+    institution:             European Centre for Medium-Range Weather Forecasts
+    history:                 2025-01-24T10:37 GRIB to CDM+CF via cfgrib-0.9.1...
+
+
+
+previously used data for old sims =  <xarray.Dataset> Size: 2GB
+Dimensions:    (longitude: 1440, latitude: 721, level: 37)
+Coordinates:
+  * longitude  (longitude) float32 6kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+  * latitude   (latitude) float32 3kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * level      (level) int32 148B 1 2 3 5 7 10 20 ... 875 900 925 950 975 1000
+    time       datetime64[ns] 8B 2018-01-01
+Data variables:
+    d          (level, latitude, longitude) float64 307MB ...
+    z          (level, latitude, longitude) float64 307MB ...
+    q          (level, latitude, longitude) float64 307MB ...
+    t          (level, latitude, longitude) float64 307MB ...
+    u          (level, latitude, longitude) float64 307MB ...
+    v          (level, latitude, longitude) float64 307MB ...
+    vo         (level, latitude, longitude) float64 307MB ...
+Attributes:
+    Conventions:  CF-1.6
+    history:      2024-09-02 10:50:14 GMT by grib_to_netcdf-2.28.1: /opt/ecmw...
+
+
+
+(api_data['valid_time'].values - old_data['time'].values).mean() =  0 nanoseconds
+(api_data['longitude'].values - old_data['longitude'].values).mean() =  0.0
+(api_data['latitude'].values - old_data['latitude'].values).mean() =  0.0
+(api_data['pressure_level'].values - old_data['level'].values).mean() =  0.0
+(api_data['d'].values - old_data['d'].values).mean() =  -1.0075380344550254e-12
+(api_data['z'].values - old_data['z'].values).mean() =  -0.0011475703620580165
+(api_data['q'].values - old_data['q'].values).mean() =  -4.309749629771563e-09
+(api_data['t'].values - old_data['t'].values).mean() =  -1.033884399639329e-06
+(api_data['u'].values - old_data['u'].values).mean() =  1.130735248155182e-07
+(api_data['v'].values - old_data['v'].values).mean() =  3.194428431349863e-07
+(api_data['vo'].values - old_data['vo'].values).mean() =  2.6458210026194273e-12
