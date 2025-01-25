@@ -1,3 +1,52 @@
+=============================================== SINGLE LEVELS =========================================================
+
+newly obtained data from api req =  <xarray.Dataset> Size: 4MB
+Dimensions:     (latitude: 721, longitude: 1440)
+Coordinates:
+    number      int64 8B ...
+    valid_time  datetime64[ns] 8B 2018-01-01
+  * latitude    (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude   (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+    expver      <U4 16B ...
+Data variables:
+    msl         (latitude, longitude) float32 4MB ...
+Attributes:
+    GRIB_centre:             ecmf
+    GRIB_centreDescription:  European Centre for Medium-Range Weather Forecasts
+    GRIB_subCentre:          0
+    Conventions:             CF-1.7
+    institution:             European Centre for Medium-Range Weather Forecasts
+    history:                 2025-01-25T11:50 GRIB to CDM+CF via cfgrib-0.9.1...
+
+
+
+previously used data for old sims =  <xarray.Dataset> Size: 4MB
+Dimensions:     (latitude: 721, longitude: 1440)
+Coordinates:
+    number      int64 8B ...
+    valid_time  datetime64[ns] 8B 2018-01-01
+  * latitude    (latitude) float64 6kB 90.0 89.75 89.5 ... -89.5 -89.75 -90.0
+  * longitude   (longitude) float64 12kB 0.0 0.25 0.5 0.75 ... 359.2 359.5 359.8
+    expver      <U4 16B ...
+Data variables:
+    msl         (latitude, longitude) float32 4MB ...
+Attributes:
+    GRIB_centre:             ecmf
+    GRIB_centreDescription:  European Centre for Medium-Range Weather Forecasts
+    GRIB_subCentre:          0
+    Conventions:             CF-1.7
+    institution:             European Centre for Medium-Range Weather Forecasts
+    history:                 2024-12-11T11:01 GRIB to CDM+CF via cfgrib-0.9.1...
+
+
+
+(api_data_single['valid_time'].values - old_data_single['valid_time'].values).mean() =  0 nanoseconds
+(api_data_single['longitude'].values - old_data_single['longitude'].values).mean() =  0.0
+(api_data_single['latitude'].values - old_data_single['latitude'].values).mean() =  0.0
+(api_data_single['msl'].values - old_data_single['msl'].values).mean() =  0.0
+
+=============================================== PRESSURE LEVELS =========================================================
+
 newly obtained data from api req =  <xarray.Dataset> Size: 1GB
 Dimensions:         (latitude: 721, longitude: 1440, pressure_level: 37)
 Coordinates:
