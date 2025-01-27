@@ -1,3 +1,13 @@
+ERA5 DATA HAS DEGRADDED, THIS .TXT SHOWS HOW THIS DEGREDATION AFFECTS THE RESULTS AT HAND. DATA DOWNLOADED PRE DEGREDATION IS AVAILABLE 
+AND IS USED TO CONDUCT THESE COMPARISONS. SEE BELOW FOR SOURCES REGRADING THIS. NOTE EVEN POST FIX THERE ARE STILL DISCREPANCIES:
+
+https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fforum.ecmwf.int%2Ft%2Fera5-data-from-1st-january-2025-was-degraded-and-is-being-corrected%2F10689&data=05%7C02%7Camh231%40bath.ac.uk%7Caad73f8aaffa46db537908dd3ea79ae9%7C377e3d224ea1422db0ad8fcc89406b9e%7C0%7C0%7C638735611772332
+423%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=VGHXz5L3Bwxz
+9GUKGdhbKP3d4HYqdFKzLNeLfdvvG08%3D&reserved=0
+
+RESULTS: GIVEN THE MAX ERROR IS e-6, THIS SHOULD NOT BE IMPACTFUL TO THE FINAL RESULTS, SIMULATIONS WILL PROCEED AS NORMAL.
+
+
 =============================================== SINGLE LEVELS =========================================================
 
 newly obtained data from api req =  <xarray.Dataset> Size: 4MB
@@ -242,3 +252,5 @@ Data variables:
 | `u`                             | 1.13e-7               | -6.92e-8              | -1.49e-7               |
 | `v`                             | 3.19e-7               | -1.02e-7              | -3.02e-8               |
 | `vo`                            | 2.65e-12              | 4.04e-14              | 1.28e-12               |
+
+
